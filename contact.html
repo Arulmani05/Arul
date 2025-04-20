@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Arulmani - Contact</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary: #8e44ad;
+            --secondary: #6c5ce7;
+            --accent: #00cec9;
+            --accent2: #fdcb6e;
+            --light: #f8f9fa;
+            --dark: #2d3436;
+            --gradient: linear-gradient(135deg, #6c5ce7 0%, #8e44ad 100%);
+            --gradient2: linear-gradient(135deg, #00cec9 0%, #6c5ce7 100%);
+            --gradient3: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo::before {
+            content: '{ ';
+            color: var(--accent);
+            margin-right: 5px;
+        }
+        
+        .logo::after {
+            content: ' }';
+            color: var(--accent);
+            margin-left: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .nav-links a.active {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .page-title span {
+            color: var(--primary);
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 6px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+        
+        .page-subtitle {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(108, 92, 231, 0.2), rgba(142, 68, 173, 0.2));
+            animation: float 15s infinite linear;
+        }
+        
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 20%;
+            left: -100px;
+            animation-duration: 35s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: -50px;
+            animation-duration: 25s;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 10%;
+            left: 30%;
+            animation-duration: 30s;
+            animation-delay: 5s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: var(--gradient2);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .contact-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .contact-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .info-content h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .info-content p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: var(--gradient3);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: rgba(108, 92, 231, 0.05);
+            transition: all 0.3s;
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, #00cec9 0%, #6c5ce7 100%);
+            transition: all 0.4s;
+            z-index: -1;
+        }
+        
+        .submit-btn:hover::before {
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.6);
+        }
+        
+        .personal-details {
+            margin-top: 50px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .personal-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .personal-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .detail-value {
+            color: #555;
+        }
+        
+        .map-section {
+            margin: 60px 0;
+        }
+        
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            background: #f1f1f1;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .connect-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .connect-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .social-link {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 24px;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 60px 0 30px;
+            position: relative;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .footer-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .quick-links {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .quick-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .quick-links a:hover {
+            color: var(--accent);
+        }
+        
+        @media screen and (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .details-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .nav-links li {
+                margin: 5px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info, .contact-form, .personal-details {
+                padding: 30px 20px;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">M. Arulmani</a>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Get in <span>Touch</span></h1>
+            <p class="page-subtitle">Feel free to contact me for any queries or opportunities</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 class="contact-title">Contact Information</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">📱</div>
+                    <div class="info-content">
+                        <h3>Phone</h3>
+                        <p>+91 9025891105</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p>arulmani@example.com</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">🏠</div>
+                    <div class="info-content">
+                        <h3>Address</h3>
+                        <p>3/47 South Street, Ayankarisalkulam,<br>Virudhunagar - 626149,<br>Tamil Nadu, India</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">🎓</div>
+                    <div class="info-content">
+                        <h3>College</h3>
+                        <p>AAA College of Engineering and Technology</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2 class="contact-title">Send Me a Message</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">Your Message</label>
+                        <textarea id="message" name="message" class="form-textarea" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="personal-details">
+            <h2 class="personal-title">Personal Details</h2>
+            <div class="details-grid">
+                <div>
+                    <div class="detail-item">
+                        <span class="detail-label">Register No</span>
+                        <span class="detail-value">953723205005</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Full Name</span>
+                        <span class="detail-value">M. Arulmani</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Date of Birth</span>
+                        <span class="detail-value">08/02/2005</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Gender</span>
+                        <span class="detail-value">Male</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="detail-item">
+                        <span class="detail-label">Programme</span>
+                        <span class="detail-value">B. Tech. Information Technology</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Batch</span>
+                        <span class="detail-value">2023-2027</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Semester</span>
+                        <span class="detail-value">Fourth Semester</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Department</span>
+                        <span class="detail-value">B. Tech IT</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="detail-item">
+                        <span class="detail-label">Father's Name</span>
+                        <span class="detail-value">A. Murugan</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Father's Contact</span>
+                        <span class="detail-value">+91 8344417845</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Mother's Name</span>
+                        <span class="detail-value">M. Mahalakshmi</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Native Place</span>
+                        <span class="detail-value">Ayankarisalkulam</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <div class="map-container">
+                <!-- Replace with actual embedded map of Ayankarisalkulam, Virudhunagar -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15767.899053594199!2d77.9!3d9.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06cce08ce21c3f%3A0x95f35c634b3e3a19!2sVirudhunagar%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="connect-section">
+            <h2 class="connect-title">Connect With Me</h2>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <span>in</span>
+                </a>
+                <a href="#" class="social-link">
+                    <span>f</span>
+                </a>
+                <a href="#" class="social-link">
+                    <span>t</span>
+                </a>
+                <a href="#" class="social-link">
+                    <span>g</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#2d3436"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">M. Arulmani</div>
+                <div class="quick-links">
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="education.html">Education</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">f</a>
+                    <a href="#" class="social-link">t</a>
+                    <a href="#" class="social-link">g</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 M. Arulmani. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation for skill progress bars
+        window.addEventListener('load', function() {
+            const progressBars = document.querySelectorAll('.skill-progress');
+            progressBars.forEach(bar => {
+                bar.style.width = bar.getAttribute('data-progress') || '0%';
+            });
+        });
+        
+        // Category filter functionality
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // Add filter functionality here
+            });
+        });
+    </script>
+</body>
+</html>
